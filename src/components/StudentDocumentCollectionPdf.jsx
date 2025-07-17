@@ -103,7 +103,7 @@ function StudentDocumentCollectionPdf() {
       width: "15%",
       fontFamily: "Times-Roman",
       color: "#000000",
-      padding: "4px",
+      padding: "2px",
     },
 
     tdStyle: {
@@ -162,7 +162,7 @@ function StudentDocumentCollectionPdf() {
       fontSize: "10px",
       fontFamily: "Times-Roman",
       width: "50%",
-      marginBottom: "20px",
+      marginBottom: "10px",
     },
 
     collectorSignatureStyle: {
@@ -171,37 +171,7 @@ function StudentDocumentCollectionPdf() {
       width: "50%",
       textAlign: "right",
     },
-    // heading: {
-    //   backgroundColor: "#182778",
-    //   color: "white",
-    //   // fontSize: 11,
-    //   padding: 3,
-    //   textAlign: "center",
-    //   fontFamily: "Times-Roman",
-    // },
-    // tableRowStyle: {
-    //   flexDirection: "row",
-    //   // border: "1px solid #dddddd",
-    //   padding: "5px",
-    // },
 
-    // rowStyle: { flexDirection: "row" },
-
-    // transcriptTh: {
-    //   fontSize: "10px",
-    //   fontWeight: "bold",
-    //   fontFamily: "Times-Roman",
-    //   backgroundColor: "#182778",
-    //   color: "white",
-    //   width: "100%",
-    //   padding: "5px",
-    //   textAlign: "center",
-    // },
-
-    // transcriptTd: {
-    //   fontSize: "10px",
-    //   fontFamily: "Times-Roman",
-    // },
     studentTableSection: {
       marginTop: "20px",
       marginBottom: "20px",
@@ -389,14 +359,16 @@ function StudentDocumentCollectionPdf() {
           <View style={styles.transcriptThHeaderStyle}>
             <Text style={styles.transcriptThStyle}>Transcript</Text>
           </View>
-          <View style={styles.transcriptThHeaderStyle}>
-            <Text style={styles.transcriptThStyle}>Collected</Text>
-          </View>
+
           <View style={styles.transcriptThHeaderStyle}>
             <Text style={styles.transcriptThStyle}> Submit By</Text>
           </View>
           <View style={styles.transcriptThHeaderStyle}>
-            <Text style={styles.transcriptThStyle}>Collected By</Text>
+            <Text style={styles.transcriptThStyle}>Collected</Text>
+          </View>
+
+          <View style={styles.transcriptThHeaderStyle}>
+            <Text style={styles.transcriptThStyle}>User</Text>
           </View>
           <View style={styles.transcriptThHeaderStyle}>
             <Text style={styles.transcriptThStyle}>Collected Date</Text>
@@ -420,16 +392,17 @@ function StudentDocumentCollectionPdf() {
               </View>
               <View style={styles.transcriptTdHeaderStyle}>
                 <Text style={styles.transcriptTdStyle}>
-                  {obj.will_submit_by ? "" : "Yes"}
-                </Text>
-              </View>
-              <View style={styles.transcriptTdHeaderStyle}>
-                <Text style={styles.transcriptTdStyle}>
                   {obj.will_submit_by
                     ? `${convertToDMY(obj.will_submit_by.slice(0, 10))}`
                     : ""}
                 </Text>
               </View>
+              <View style={styles.transcriptTdHeaderStyle}>
+                <Text style={styles.transcriptTdStyle}>
+                  {obj.will_submit_by ? "No" : "Yes"}
+                </Text>
+              </View>
+
               <View style={styles.transcriptTdHeaderStyle}>
                 <Text style={styles.transcriptTdStyle}>
                   {obj.created_username}
@@ -477,15 +450,12 @@ function StudentDocumentCollectionPdf() {
         <Document title="Document Collection">
           <Page size="A4">
             <View style={styles.pageLayout}>
-              {/* <Text style={styles.header}>Document Collection</Text> */}
               <View style={styles.logoHeaderStyle}>{logoHeader()}</View>
               {/* <View style={styles.studentTableStyle}>{studentTable()}</View> */}
               <View style={styles.studentTableSection}>
                 <View
                   style={{
                     width: "100%",
-                    // borderRadius: "1px",
-                    // marginLeft: "15px",
                   }}
                 >
                   <Text
@@ -626,35 +596,6 @@ function StudentDocumentCollectionPdf() {
                       </View>
 
                       {/* new */}
-
-                      {/* <View style={styles.tableRow}>
-                      <View style={styles.tableColLabel}>
-                        <Text style={styles.tableCellLabel}>Nationality</Text>
-                      </View>
-
-                      <View style={styles.tableCol}>
-                        <Text
-                          style={{
-                            ...styles.tableCell,
-                          }}
-                        >
-                          {studentDetails?.CountryName?.toUpperCase() || "-"}
-                        </Text>
-                      </View>
-                      <View style={styles.tableColLabel}>
-                        <Text style={styles.tableCellLabel}>
-                          Admission Category
-                        </Text>
-                      </View>
-
-                      <View style={styles.tableCol}>
-                        <Text
-                          style={{
-                            ...styles.tableCell,
-                          }}
-                        >{`${studentDetails?.fee_admission_category_type} - ${studentDetails?.fee_admission_sub_category_short_name}`}</Text>
-                      </View>
-                    </View> */}
                     </View>
                   </View>
                 </View>

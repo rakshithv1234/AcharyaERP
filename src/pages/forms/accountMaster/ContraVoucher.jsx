@@ -16,9 +16,8 @@ import {
   TableCell,
   TableBody,
 } from "@mui/material";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useAlert from "../../../hooks/useAlert";
-import useBreadcrumbs from "../../../hooks/useBreadcrumbs";
 import moment from "moment";
 
 const CustomAutocomplete = lazy(() =>
@@ -70,11 +69,8 @@ function ContraVoucher() {
   const [selectAll, setSelectAll] = useState(false);
   const [totalPayingNow, setTotalPayingNow] = useState(0);
 
-  const setCrumbs = useBreadcrumbs();
-  const { id } = useParams();
   const navigate = useNavigate();
   const { setAlertMessage, setAlertOpen } = useAlert();
-  const { pathname } = useLocation();
 
   const checks = {};
 
@@ -112,8 +108,6 @@ function ContraVoucher() {
       })
       .catch((err) => console.error(err));
   };
-
-  console.log(totalPayingNow);
 
   const getBankData = async () => {
     const { schoolId } = values;
@@ -243,8 +237,6 @@ function ContraVoucher() {
       }),
     }));
   };
-
-  console.log("values", values.schoolData);
 
   const requiredFieldsValid = () => {
     for (let i = 0; i < requiredFields.length; i++) {

@@ -828,8 +828,6 @@ function StudentDetailsView() {
     }
   };
 
-  console.log("tt", transcriptValues);
-
   const handleStudentEdit = async () => {
     try {
       const payload = {};
@@ -901,18 +899,6 @@ function StudentDetailsView() {
       //   programValues.admissionSubCategory;
       payload.fee_template_id = programValues.feeTemplateId;
       // payload.Is_nri = programValues.isNri === "true" ? true : false;
-      const postTemp = [];
-
-      postTemp.push({
-        // active: true,
-        // transcript_id: obj.transcriptId,
-        // student_id: studentData.student_id,
-        // is_collected: obj.submittedStatus === true ? "YES" : null,
-        // submitted_date: obj.lastDate
-        //   ? moment(obj.lastDate).format("YYYY-MM-DD")
-        //   : moment().format("YYYY-MM-DD"),
-        // not_applicable: obj.notRequied === true ? "YES" : null,
-      });
 
       const response = await axios.patch(
         `/api/student/updateStudentDetailsPartially/${applicantData.student_id}`,

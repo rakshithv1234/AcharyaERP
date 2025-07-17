@@ -166,8 +166,6 @@ function DocumentCollectionForm() {
     }));
   };
 
-  console.log(values);
-
   const getTranscriptData = async () => {
     await axios
       .get(`/api/student/StudentTranscriptSubmission1/${id}`)

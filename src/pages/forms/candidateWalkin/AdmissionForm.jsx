@@ -766,7 +766,7 @@ function AdmissionForm() {
     }
 
     try {
-      // setIsLoading(true);
+      setIsLoading(true);
       const {
         studentName,
         dob,
@@ -1103,6 +1103,7 @@ function AdmissionForm() {
           message: "AUID has been created successfully",
         });
         setAlertOpen(true);
+
         navigate(
           type === "user"
             ? "/admissions-userwise"
